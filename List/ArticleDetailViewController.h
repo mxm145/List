@@ -10,4 +10,6 @@
 
 @interface ArticleDetailViewController : UIViewController
 
+@property (weak, nonatomic) NSString * url;
+
 @end

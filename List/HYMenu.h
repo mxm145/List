@@ -10,4 +10,9 @@
 
 @interface HYMenu : NSObject
 
+@property (copy, nonatomic) NSString *albums;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *url;
+
 @end

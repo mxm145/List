@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HYCell : UIViewController
+@class HYMenu;
+
+@interface HYCell : UITableViewCell
+
+@property (strong, nonatomic) HYMenu *menu;
 
 @end

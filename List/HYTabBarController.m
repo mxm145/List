@@ -7,6 +7,8 @@
 //
 
 #import "HYTabBarController.h"
+#import "ViewController.h"
+#import "SecondViewController.h"
 
 @interface HYTabBarController ()
 
@@ -16,22 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initViewController];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) initViewController{
+    ViewController *view = [[ViewController alloc] init];
+    [self setupViewController:view image:[UIImage imageNamed:@"tab_home_icon"] title:@"首页"];
+    
+    SecondViewController *secView = [[SecondViewController alloc] init];
+    [self setupViewController:secView image:[UIImage imageNamed:@"user"] title:@"设置"];
 }
-*/
+
+-(void) setupViewController:(UIViewController *)viewController image:(UIImage *)image title:(NSString *)title{
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+    nav.title = title;
+    nav.tabBarItem.image = image;
+    //[nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"commentary_num_bg"] forBarMetrics:UIBarMetricsDefault];
+    viewController.navigationItem.title = title;
+    [self addChildViewController:nav];
+}
 
 @end
