@@ -11,11 +11,13 @@
 
 @interface ArticleDetailViewController () <UIWebViewDelegate>
 @property (strong, nonatomic) UIWebView *webView;
-
+@property NSNumber *stat;
+@property (weak, nonatomic) MBProgressHUD *HUD;
 @end
 
 @implementation ArticleDetailViewController
-MBProgressHUD *HUD;
+//MBProgressHUD *HUD;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,18 +39,25 @@ MBProgressHUD *HUD;
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
-    HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.removeFromSuperViewOnHide = YES;
-    HUD.labelText = @"加载中...";
-    [HUD hide:YES afterDelay:2];
+    if (self.stat == false) {
+        self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.HUD.removeFromSuperViewOnHide = YES;
+        self.HUD.labelText = @"加载中...";
+        
+        self.stat = [[NSNumber alloc] initWithBool:YES];
+    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    HUD.labelText = @"加载完成";
+    if (webView.isLoading) {
+        return;
+    }
+    self.HUD.labelText = @"加载完成";
+    [self.HUD hide:YES afterDelay:0.5];
 }
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
-    HUD.labelText = @"加载失败";
+    self.HUD.labelText = @"加载失败";
 }
 
 /*

@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import <MJRefresh.h>
 #import "ArticleDetailViewController.h"
+#import "HeaderImageViewController.h"
 
 @interface ViewController ()
 
@@ -30,6 +31,9 @@ static NSString * const CellId = @"cell";
     [super viewDidLoad];
     self.maxorder = [[NSNumber alloc] initWithDouble:0.0000];
     [self setupTable];
+    CGFloat W = [UIScreen mainScreen].bounds.size.width;
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, 200)];
+    HeaderImageViewController *headerImage = [[HeaderImageViewController alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,9 +134,10 @@ static NSString * const CellId = @"cell";
     return cell;
 }
 
-/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
-}*/
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 200;
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *url = self.menus[indexPath.row].url;
