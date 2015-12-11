@@ -13,7 +13,8 @@
 #import "MJExtension.h"
 #import <MJRefresh.h>
 #import "ArticleDetailViewController.h"
-#import "HeaderImageViewController.h"
+#import "HeaderImageView.h"
+#import "UIImageView+WebCache.h"
 
 @interface ViewController ()
 
@@ -25,15 +26,15 @@
 @implementation ViewController
 
 static NSString * const RequestUrl = @"http://cms.wxyd.yunnan.cn/index.php?m=news&a=get_list";
+static NSString * const RequestImageUrl = @"http://cms.wxyd.yunnan.cn/index.php?m=news&a=get_top_list";
 static NSString * const CellId = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.maxorder = [[NSNumber alloc] initWithDouble:0.0000];
     [self setupTable];
-    CGFloat W = [UIScreen mainScreen].bounds.size.width;
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, 200)];
-    HeaderImageViewController *headerImage = [[HeaderImageViewController alloc] init];
+    [self setupHeaderImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +46,39 @@ static NSString * const CellId = @"cell";
         _manager = [AFHTTPSessionManager manager];
     }
     return _manager;
+}
+
+-(void) setupHeaderImage{
+    //[self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"93",@"category_id",@"0",@"since_id",@"5",@"count", nil];
+    [self.manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObject:@"application/json"]];
+    [self.manager POST:RequestImageUrl parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSDictionary *news = [responseObject objectForKey:@"news"];
+        NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+        NSMutableArray *titleArray = [[NSMutableArray alloc] init];
+        NSMutableArray *urlArray = [[NSMutableArray alloc] init];
+        for (NSDictionary *ob in news) {
+            [imageArray addObject:[ob objectForKey:@"thumbnail"]];
+            [titleArray addObject:[ob objectForKey:@"title"]];
+            [urlArray addObject:[ob objectForKey:@"detail_url"]];
+        }
+        CGFloat W = [UIScreen mainScreen].bounds.size.width;
+        HeaderImageView *imgView = [[HeaderImageView alloc] initWithFrame:CGRectMake(0, 0, W, 200)];
+        imgView.imageArray = imageArray;
+        imgView.titleArray = titleArray;
+        imgView.autoScroll = YES;
+        [imgView downloadFocusItem:^(id downloadItem, UIImageView *currentImageView) {
+            [currentImageView sd_setImageWithURL:[NSURL URLWithString:downloadItem]];
+        }];
+        [imgView didSelectScrollFocusItem:^(NSInteger index) {
+            //NSLog(@"click %ld",index);
+            NSString *url = urlArray[index];
+            [self pushView:url];
+        }];
+        self.tableView.tableHeaderView = imgView;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"fail");
+    }];
 }
 
 -(void) setupTable{
@@ -61,7 +95,7 @@ static NSString * const CellId = @"cell";
 }
 
 -(void) loadData{
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    //[self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     __weak typeof(self) weakSelf = self;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"category_id"] = @"93";
@@ -134,13 +168,17 @@ static NSString * const CellId = @"cell";
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 200;
-}
+}*/
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *url = self.menus[indexPath.row].url;
+    [self pushView:url];
+}
+
+-(void)pushView:(NSString *)url{
     ArticleDetailViewController *article = [[ArticleDetailViewController alloc] init];
     article.url = url;
     [self.navigationController pushViewController:article animated:YES];
