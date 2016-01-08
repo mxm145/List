@@ -27,8 +27,8 @@
 
 @synthesize id;
 
-static NSString * const RequestUrl = @"http://cms.wxyd.yunnan.cn/index.php?m=news&a=get_list";
-static NSString * const RequestImageUrl = @"http://cms.wxyd.yunnan.cn/index.php?m=news&a=get_top_list";
+static NSString * const RequestUrl = @"http://接口地址";
+static NSString * const RequestImageUrl = @"http://接口地址";
 static NSString * const CellId = @"cell";
 
 - (void)viewDidLoad {
