@@ -25,6 +25,7 @@
     webView.scalesPageToFit = YES;
     webView.delegate = self;
     [self.view addSubview:webView];
+    self.navigationItem.title = @"文章详情";
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
     [webView loadRequest:request];
 }

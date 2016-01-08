@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "HYTabBarController.h"
+#import "HYLeftMenuViewController.h"
+#import "HYRightMenuViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,14 +20,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    //ViewController *view = [[ViewController alloc] init];
-    //self.window.rootViewController = view;
     
-    HYTabBarController *tabBar = [[HYTabBarController alloc] init];
-    self.window.rootViewController = tabBar;
+    UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init] ];
+    HYLeftMenuViewController *leftc = [[HYLeftMenuViewController alloc] init];
+    HYRightMenuViewController *rightc = [[HYRightMenuViewController alloc] init];
+    
+    RESideMenu *sidec = [[RESideMenu alloc] initWithContentViewController:navc
+                                                   leftMenuViewController:leftc
+                                                  rightMenuViewController:rightc];
+    sidec.menuPreferredStatusBarStyle = 1;
+    sidec.delegate = self;
+    sidec.backgroundImage = [UIImage imageNamed:@"sidebg"];
+    sidec.contentViewShadowColor = [UIColor blackColor];
+    sidec.contentViewShadowOffset = CGSizeMake(0, 0);
+    sidec.contentViewShadowOpacity = 0.6;
+    sidec.contentViewShadowRadius = 12;
+    sidec.contentViewShadowEnabled = YES;
+    
+    self.window.rootViewController = sidec;
+    self.window.backgroundColor = [UIColor whiteColor];
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController{
+    //NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController{
+    //NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController{
+    //NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController{
+    //NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

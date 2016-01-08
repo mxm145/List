@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RESideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -38,6 +43,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B62F2442EE3A88DA440291FB9C4C348</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F3A8D7C45A2D30BA3954DD89031D894</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D80A04CB3E277B64016AF25178C87282</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD585A17EFD4850807D72C17028521E5</key>
+		<key>DAC85BD2CC5DBA725B505762369BB6BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

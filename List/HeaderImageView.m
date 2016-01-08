@@ -79,7 +79,8 @@
 -(UIView *)noteView{
     if (!_noteView) {
         _noteView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_noteView setBackgroundColor:[UIColor blackColor]];
+        UIColor *color = [UIColor blackColor];
+        [_noteView setBackgroundColor:[color colorWithAlphaComponent:0.6]];
     }
     return _noteView;
 }
@@ -188,7 +189,6 @@
         
         [self reloadData];
     }
-    
     if (self.titleArray!=nil && [self.titleArray count]>_currentPageIndex) {
         _noteTitle.text = self.titleArray[_currentPageIndex];
     }
@@ -225,6 +225,8 @@
     
     [self reloadData];
     _pageControl.currentPage = _currentPageIndex;
+    
+    _noteTitle.text = self.titleArray[_currentPageIndex];
     if (_autoScroll) {
         [self performSelector:@selector(switchFocusImageItems) withObject:nil afterDelay:SWITCH_FOCUS_IMAGE_INTERVAL];
     }

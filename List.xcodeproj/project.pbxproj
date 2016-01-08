@@ -30,6 +30,9 @@
 		6C3B79A21C16D3FC000C807B /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C3B79A01C16D3FC000C807B /* user@2x.png */; };
 		6C3B79A51C16DF53000C807B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B79A41C16DF53000C807B /* SecondViewController.m */; };
 		6C3B79AA1C17C2C1000C807B /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B79A91C17C2C1000C807B /* ArticleDetailViewController.m */; };
+		6CA99E761C3267F1008A3E6B /* HYLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA99E751C3267F1008A3E6B /* HYLeftMenuViewController.m */; };
+		6CA99E791C326B8E008A3E6B /* HYRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA99E781C326B8E008A3E6B /* HYRightMenuViewController.m */; };
+		6CA99E7B1C3275A1008A3E6B /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA99E7A1C3275A1008A3E6B /* Stars@2x.png */; };
 		6CAB651B1C0BF1CA00FC6C55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB651A1C0BF1CA00FC6C55 /* main.m */; };
 		6CAB651E1C0BF1CA00FC6C55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB651D1C0BF1CA00FC6C55 /* AppDelegate.m */; };
 		6CAB65211C0BF1CA00FC6C55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB65201C0BF1CA00FC6C55 /* ViewController.m */; };
@@ -38,6 +41,7 @@
 		6CAB65291C0BF1CB00FC6C55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CAB65271C0BF1CB00FC6C55 /* LaunchScreen.storyboard */; };
 		6CAB65341C0BF1CB00FC6C55 /* ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB65331C0BF1CB00FC6C55 /* ListTests.m */; };
 		6CAB653F1C0BF1CB00FC6C55 /* ListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB653E1C0BF1CB00FC6C55 /* ListUITests.m */; };
+		6CF19DC81C3522D6002A440E /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF19DC71C3522D6002A440E /* RootTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,11 @@
 		6C3B79A41C16DF53000C807B /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		6C3B79A81C17C2C1000C807B /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
 		6C3B79A91C17C2C1000C807B /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
+		6CA99E741C3267F1008A3E6B /* HYLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYLeftMenuViewController.h; sourceTree = "<group>"; };
+		6CA99E751C3267F1008A3E6B /* HYLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYLeftMenuViewController.m; sourceTree = "<group>"; };
+		6CA99E771C326B8E008A3E6B /* HYRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYRightMenuViewController.h; sourceTree = "<group>"; };
+		6CA99E781C326B8E008A3E6B /* HYRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYRightMenuViewController.m; sourceTree = "<group>"; };
+		6CA99E7A1C3275A1008A3E6B /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
 		6CAB65161C0BF1CA00FC6C55 /* List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = List.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CAB651A1C0BF1CA00FC6C55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CAB651C1C0BF1CA00FC6C55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +112,8 @@
 		6CAB653A1C0BF1CB00FC6C55 /* ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CAB653E1C0BF1CB00FC6C55 /* ListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListUITests.m; sourceTree = "<group>"; };
 		6CAB65401C0BF1CB00FC6C55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CF19DC61C3522D6002A440E /* RootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
+		6CF19DC71C3522D6002A440E /* RootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
 		B50B8DAA80315E42CB0085AD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C08E2E97EF7A22BE8723EDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +155,7 @@
 		6C0846FA1C10357300CAF2CD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6CA99E7A1C3275A1008A3E6B /* Stars@2x.png */,
 				6C21E5C61C195D3600C9FAAA /* Artboard 6.png */,
 				6C21E5B81C192AAF00C9FAAA /* 5C@1x.png */,
 				6C21E5B91C192AAF00C9FAAA /* 5C@2x.png */,
@@ -227,7 +239,13 @@
 				6CAB652A1C0BF1CB00FC6C55 /* Info.plist */,
 				6C3B79911C16CAC6000C807B /* HYTabBarController.h */,
 				6C3B79921C16CAC6000C807B /* HYTabBarController.m */,
+				6CA99E741C3267F1008A3E6B /* HYLeftMenuViewController.h */,
+				6CA99E751C3267F1008A3E6B /* HYLeftMenuViewController.m */,
+				6CA99E771C326B8E008A3E6B /* HYRightMenuViewController.h */,
+				6CA99E781C326B8E008A3E6B /* HYRightMenuViewController.m */,
 				6CAB65191C0BF1CA00FC6C55 /* Supporting Files */,
+				6CF19DC61C3522D6002A440E /* RootTableViewController.h */,
+				6CF19DC71C3522D6002A440E /* RootTableViewController.m */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -375,6 +393,7 @@
 			files = (
 				6C21E5C71C195D3600C9FAAA /* Artboard 6.png in Resources */,
 				6C21E5B51C192AA500C9FAAA /* iPhone 6.png in Resources */,
+				6CA99E7B1C3275A1008A3E6B /* Stars@2x.png in Resources */,
 				6C21E5D91C1A79BA00C9FAAA /* HeaderImageView.xib in Resources */,
 				6C3B799E1C16D3D2000C807B /* tab_home_icon@2x.png in Resources */,
 				6C0846F61C0D423300CAF2CD /* HYCell.xib in Resources */,
@@ -465,6 +484,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3B79931C16CAC6000C807B /* HYTabBarController.m in Sources */,
+				6CA99E761C3267F1008A3E6B /* HYLeftMenuViewController.m in Sources */,
+				6CA99E791C326B8E008A3E6B /* HYRightMenuViewController.m in Sources */,
+				6CF19DC81C3522D6002A440E /* RootTableViewController.m in Sources */,
 				6C0846F41C0D41F300CAF2CD /* HYCell.m in Sources */,
 				6CAB65211C0BF1CA00FC6C55 /* ViewController.m in Sources */,
 				6C3B79A51C16DF53000C807B /* SecondViewController.m in Sources */,
